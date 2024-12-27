@@ -34,9 +34,17 @@ public class RushHourGame {
     }
 
     boolean play(JPanel panel) {
-        if (displayField.getVehicle(5, 1).moveForward(displayField, 1)) {
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        if (displayField.getVehicle(5, 1).moveForward(displayField, 2)) {
             System.out.println("Game Piece has moved successfully");
         }
+        var redCar = displayField.getVehicle(1,2);
+        redCar.moveForward(displayField, 3);
+        redCar.moveForward(displayField, 1);
         System.out.println("Now move pieces with your mouse");
         while (!displayField.isWin()) {
             try {

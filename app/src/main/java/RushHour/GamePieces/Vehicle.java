@@ -36,7 +36,7 @@ public class Vehicle extends JButton implements MouseListener {
         }
         else {
             if (field.outside(fX + size + steps - 1, fY)) {
-                if (field.isGateLine(fY)) {
+                if (field.isGateLine(fY) && occupies(Field.gridX - 1, fY)) {
                     field.setWin(true);
                 }
                 return false;
@@ -102,7 +102,7 @@ public class Vehicle extends JButton implements MouseListener {
     public void updatePosition() {
         if (vertical) {
             setBounds(
-                fX * 64, //Const.boxPixels,
+                fX * boxPixels,
                 fY * boxPixels,
                 boxPixels,
                 size * boxPixels);
